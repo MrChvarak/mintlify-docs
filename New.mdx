@@ -1,0 +1,24 @@
+---
+title: "New file"
+description: "Description of your new file."
+---
+
+```
+// ... existing code ...
+ScrollView(.vertical) {
+    LazyVGrid(columns: columns, spacing: 16) {
+        ForEach(years, id: \.self) { item in
+            // ... existing item view code ...
+        }
+    }
+    .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+    .scrollTargetLayout()
+}
+.frame(maxHeight: 250)
+.scrollPosition(id: $position)
+.scrollTargetBehavior(.viewAligned) // Add this
+.onAppear { // Add this
+    position = currentYear
+}
+// ... existing code ...
+```
